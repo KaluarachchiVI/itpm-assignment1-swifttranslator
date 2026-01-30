@@ -1,0 +1,21 @@
+{
+  "name": "itpm-assignment1-swifttranslator-tests",
+  "version": "1.0.0",
+  "description": "ITPM Assignment 1 - SwiftTranslator (Singlish to Sinhala) Playwright Test Automation",
+  "scripts": {
+    "test": "playwright test",
+    "test:positive": "playwright test tests/positive-functional.spec.ts",
+    "test:negative": "playwright test tests/negative-functional.spec.ts",
+    "test:ui": "playwright test tests/ui.spec.ts",
+    "generate-excel": "node scripts/generate-excel.js"
+  },
+  "keywords": ["playwright", "testing", "singlish", "sinhala"],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.49.0",
+    "@types/node": "^22.10.0",
+    "exceljs": "^4.4.0",
+    "typescript": "^5.7.0"
+  }
+}
