@@ -21,6 +21,7 @@ test.describe('Negative Functional - Documented failures or incorrect behavior',
         actualOutput = await page.getSinhalaOutput();
       } else {
         await page.enterSinglish(scenario.input);
+        await page.waitForConversion();
         actualOutput = await page.getSinhalaOutput();
       }
 
@@ -28,7 +29,7 @@ test.describe('Negative Functional - Documented failures or incorrect behavior',
         tcId: scenario.tcId,
         input: scenario.input === '' ? '(empty)' : scenario.input,
         expectedOutput: scenario.expectedOutput,
-        actualOutput,
+        actualOutput: actualOutput ?? '',
         status: 'Pass',
       });
     });

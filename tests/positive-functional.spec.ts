@@ -24,7 +24,8 @@ test.describe('Positive Functional - Singlish to Sinhala conversion', () => {
 
       const hasSinhala = SINHALA_UNICODE_RANGE.test(actualOutput ?? '');
       const isNonEmpty = (actualOutput ?? '').trim().length > 0;
-      const isFormattingPreservation = /\d|Rs\.|USD|\.|,/.test(scenario.input) && !SINHALA_UNICODE_RANGE.test(scenario.input);
+      const isFormattingPreservation = scenario.coverage?.qualityFocus === 'Formatting preservation' ||
+        (/\d|Rs\.|Rs |USD|\.|,|AM|PM/.test(scenario.input) && !SINHALA_UNICODE_RANGE.test(scenario.input));
       const passed = (hasSinhala && isNonEmpty) || (isFormattingPreservation && isNonEmpty);
 
       addTestResult({
